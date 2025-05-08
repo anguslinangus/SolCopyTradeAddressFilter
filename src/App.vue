@@ -6,7 +6,7 @@ import { ref, computed, watch } from 'vue'
  * 配置常數
  * ===================================
  */
-const SOLANA_TRACKER_API_KEY = 'f904db77-2734-4ac2-9b07-67f83b8ee833'
+const SOLANA_TRACKER_API_KEY = '' // 去 solanatracker 申請自己的 API its free
 const REST_API_BASE_URL = 'https://data.solanatracker.io'
 const SOL_TOKEN_ADDRESS = 'So11111111111111111111111111111111111111112'
 const CACHE_DURATION_MS = 60 * 60 * 1000 // 快取有效時間：1 小時
