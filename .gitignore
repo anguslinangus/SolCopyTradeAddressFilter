@@ -28,3 +28,16 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+
+# .env files
+.env
+.env.*
+
+# except .env.example, .env.production, .env.development
+!.env.example
+!.env.production
+!.env.development
+
+# local env files
+.env.local
+.env.*.local

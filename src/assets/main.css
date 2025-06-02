@@ -1,0 +1,40 @@
+:root {
+  --primary-color: #0ef6cc; /* 亮青色 */
+  --primary-hover: #0dd4b1;
+  --secondary-color: #1a1b26; /* 深藍黑背景 */
+  --surface-color: #1e1f2b; /* 卡片/輸入框背景 */
+  --border-color: #3a3b4d; /* 邊框顏色 (稍亮) */
+  --text-color: #e8eaed; /* 主要文字 */
+  --text-secondary: #a8a9b4; /* 次要文字 */
+  --error-color: #f85149; /* 紅色 */
+  --info-color: #58a6ff; /* 藍色 */
+  --profit-color: #3fb950; /* 綠色 */
+  --loss-color: #f85149; /* 紅色 */
+  --link-color: #0ef6cc; /* 連結顏色 */
+  --card-bg: var(--surface-color);
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --border-radius: 10px;
+  --font-family: -apple-system, BlinkMacSystemFont, Inter, "Segoe UI", Roboto, sans-serif;
+  --clicked-row-bg: rgba(88, 166, 255, 0.1); /* 淡淡的藍色背景 */
+  --clicked-row-hover-bg: rgba(88, 166, 255, 0.15);
+  --clicked-row-opacity: 0.75; /* 稍微降低透明度 */
+}
+
+/* 因為 :root 通常在全局定義，如果這個組件的樣式是 scoped，
+   則直接在這裡定義 :root 可能不會如預期般影響全局。
+   建議將 CSS 變數定義在一個全局的 CSS 檔案 (例如 src/style.css 或 src/assets/main.css)
+   然後在 main.js 中導入，或者在 App.vue 的非 scoped <style> 標籤中定義。
+   如果堅持在 scoped style 中使用，則需要確保這些變數在此組件範圍內可用。
+   為了簡單起見，這裡暫時保留，但請注意其作用域。
+*/
+
+body { /* body 樣式應在全局 CSS 中 */
+  font-family: var(--font-family);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--secondary-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
