@@ -212,7 +212,6 @@ const handleClearFilters = () => {
 </template>
 
 <style scoped>
-/* 這裡會是您之前 App.vue <style> 的所有內容 */
 
 .container {
   max-width: 1300px;

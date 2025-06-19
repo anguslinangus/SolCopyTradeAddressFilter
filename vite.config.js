@@ -6,6 +6,8 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages 部署時的 base URL
+  base: process.env.NODE_ENV === 'production' ? '/vueReviewCopyTradeAddressFilter(250426)/' : '/',
   plugins: [
     vue(),
     vueDevTools(),
