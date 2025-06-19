@@ -10,8 +10,13 @@ export async function fetchTrades(tokenAddress, onProgress) {
   if (!tokenAddress) {
     return { trades: [], isIncomplete: false, error: '請輸入目標代幣地址' };
   }
+  
   if (!SOLANA_TRACKER_API_KEY || SOLANA_TRACKER_API_KEY === 'YOUR_API_KEY' || SOLANA_TRACKER_API_KEY.length < 10) {
-    return { trades: [], isIncomplete: false, error: '請在程式碼中設定有效的 Solana Tracker API Key' };
+    return { 
+      trades: [], 
+      isIncomplete: false, 
+      error: '請設定有效的 Solana Tracker API Key。\n\n如果您是網站開發者，請在環境變數中設定 VITE_SOLANA_TRACKER_API_KEY。\n\n如果您是使用者，這表示網站管理員尚未配置 API 金鑰。'
+    };
   }
 
   const allTrades = [];
