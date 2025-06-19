@@ -12,9 +12,6 @@ import TokenAnalyzerPage from './pages/TokenAnalyzerPage.vue';
 
 <template>
   <div id="app-container">
-    <h1>測試頁面 - 功能已恢復</h1>
-    <p>如果您能看到下面的完整功能，說明部署成功！</p>
-    <hr>
     <TokenAnalyzerPage /> 
   </div>
 </template>
@@ -31,25 +28,5 @@ body {
 #app-container {
   max-width: 1400px;
   margin: 0 auto;
-}
-
-#app-container > h1 {
-  color: #0ef6cc;
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-#app-container > p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-#app-container > hr {
-  border: none;
-  border-top: 1px solid #3a3b4d;
-  margin: 20px 0;
 }
 </style>
