@@ -1,7 +1,4 @@
 <script setup>
-// 暫時註釋掉複雜的組件，用一個簡單的測試
-import TokenAnalyzerPage from './pages/TokenAnalyzerPage.vue';
-
 // 未來可以在這裡添加全局邏輯，例如:
 // import { useTheme } from './composables/useTheme'; // 假設的主題管理
 // const { initializeTheme } = useTheme();
@@ -12,7 +9,7 @@ import TokenAnalyzerPage from './pages/TokenAnalyzerPage.vue';
 
 <template>
   <div id="app-container">
-    <TokenAnalyzerPage /> 
+    <router-view /> 
   </div>
 </template>
 

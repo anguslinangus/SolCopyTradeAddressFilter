@@ -15,6 +15,11 @@ import { usePersistentSet } from '../composables/usePersistentStorage';
 
 import '../assets/main.css'
 
+// 路由功能
+import { useRouter, useRoute } from 'vue-router';
+const router = useRouter();
+const route = useRoute();
+
 // --- 核心分析邏輯 ---
 const {
   targetTokenAddress,
@@ -60,6 +65,13 @@ const {
 // --- 生命週期 & 監聽器 ---
 onMounted(() => {
   loadClickedAddresses();
+  
+  // 檢查 URL 中是否有代幣地址參數
+  const tokenFromUrl = route.query.token;
+  if (tokenFromUrl) {
+    targetTokenAddress.value = tokenFromUrl;
+    performAnalysis();
+  }
 });
 
 watch([
@@ -77,6 +89,17 @@ watch([
 const handleClearFilters = () => {
   clearFilterInputs();
 };
+
+// 跳轉到地址分析
+
+const goToAddressPnl = (address) => {
+  console.log("跳轉到地址分析", address);
+  router.push({
+    name: "AddressPnl", 
+    params: { address: address },
+    query: { token: targetTokenAddress.value }
+  })
+}
 
 </script>
 
@@ -169,14 +192,27 @@ const handleClearFilters = () => {
           <tbody v-if="paginatedResults.length > 0">
             <tr v-for="item in paginatedResults" :key="item.address" :class="{ 'clicked-row': clickedAddresses.has(item.address) }">
               <td>
-                <a
-                  @click="markAddressClicked(item.address)"
-                  :href="`https://gmgn.ai/sol/address/${item.address}`"
-                  target="_blank"
-                  :title="`在 GmGn 上查看 ${item.address}`"
-                >
-                  {{ item.address.substring(0, 6) }}...{{ item.address.substring(item.address.length - 4) }}
-                </a>
+                <div class="address-actions">
+                  <span class="address-display">
+                    {{ item.address.substring(0, 6) }}...{{ item.address.substring(item.address.length - 4) }}
+                  </span>
+                  <button 
+                    @click="goToAddressPnl(item.address)"
+                    class="pnl-button"
+                    title="查看地址 PNL 分析"
+                  >
+                    PNL
+                  </button>
+                  <a
+                    @click="markAddressClicked(item.address)"
+                    :href="`https://gmgn.ai/sol/address/${item.address}`"
+                    target="_blank"
+                    class="gmgn-link"
+                    :title="`在 GmGn 上查看 ${item.address}`"
+                  >
+                    GmGn↗
+                  </a>
+                </div>
               </td>
               <td>{{ item.solSpent.toFixed(3) }}</td>
               <td>{{ item.solReceived.toFixed(3) }}</td>
@@ -692,6 +728,60 @@ tbody tr:nth-child(even).clicked-row:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary-color);
 }
+
+/* 地址操作按鈕樣式 */
+.address-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.address-display {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  flex-shrink: 0;
+}
+
+.pnl-button {
+  background-color: var(--primary-color);
+  color: #1a1b26;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.pnl-button:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(14, 246, 204, 0.2);
+}
+
+.gmgn-link {
+  color: #58a6ff !important;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 6px;
+  border: 1px solid #58a6ff;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.gmgn-link:hover {
+  background-color: #58a6ff;
+  color: #1a1b26 !important;
+  text-decoration: none !important;
+  transform: translateY(-1px);
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;

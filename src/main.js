@@ -4,6 +4,9 @@ import { createApp } from "vue";
 //載入根組件
 import App from "./App.vue";
 
+// 載入路由
+import router from './router'
+
 // 全域 CSS
 import './assets/main.css'
 
@@ -36,7 +39,10 @@ function setupGlobalErrorHandling() {
 setupGlobalErrorHandling();
 
 //建立 Vue App 物件
-const app=createApp(App);
+const app = createApp(App);
+
+// 使用路由
+app.use(router);
 
 //掛載到 HTML 標籤底下
 app.mount("#app");

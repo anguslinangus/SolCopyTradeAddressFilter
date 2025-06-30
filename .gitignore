@@ -41,3 +41,8 @@ coverage
 # local env files
 .env.local
 .env.*.local
+
+# Cursor editor settings
+.cursor/
+mcp.json
+.github/
