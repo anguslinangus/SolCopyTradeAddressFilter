@@ -1,3 +1,5 @@
+// dev 測試用查詢地址 9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump
+
 /**
  * ===================================
  * API 相關常數
@@ -29,8 +31,8 @@ export const CLICKED_ADDRESSES_KEY = 'gmgnClickedAddresses';
  * API 請求配置
  * ===================================
  */
-export const MAX_PAGES_TO_FETCH = 234; // API 最大請求頁數
-export const TARGET_TRADES_TO_FETCH = 20000; // 目標獲取交易筆數
+export const MAX_PAGES_TO_FETCH = 10; // API 最大請求頁數
+export const TARGET_TRADES_TO_FETCH = 750; // 目標獲取交易筆數
 export const API_REQUEST_DELAY_MS = 250; // API 請求間的延遲
 
 /**
