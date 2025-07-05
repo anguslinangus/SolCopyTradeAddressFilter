@@ -1,10 +1,4 @@
 <script setup>
-// 未來可以在這裡添加全局邏輯，例如:
-// import { useTheme } from './composables/useTheme'; // 假設的主題管理
-// const { initializeTheme } = useTheme();
-// onMounted(() => {
-//   initializeTheme();
-// });
 </script>
 
 <template>
