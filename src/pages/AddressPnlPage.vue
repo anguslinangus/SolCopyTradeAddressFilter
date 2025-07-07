@@ -51,11 +51,19 @@ const goBack = () => {
 <style scoped>
 .address-pnl-page {
   max-width: 1300px;
-  margin: 20px auto;
+  margin: 100px auto 20px; /* 頂部留出導航欄空間 */
   padding: 30px;
   background-color: var(--surface-color, #1e1f2e);
   border-radius: 8px;
   color: var(--text-color, #e8eaed);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .address-pnl-page {
+    margin: 90px 10px 10px; /* 手機版調整 */
+    padding: 20px;
+  }
 }
 
 .page-header {
