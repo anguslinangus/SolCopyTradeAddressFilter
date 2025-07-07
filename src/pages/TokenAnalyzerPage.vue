@@ -187,7 +187,7 @@ watch([
 <style scoped>
 .container {
   max-width: 1300px;
-  margin: 20px auto;
+  margin: 100px auto 20px; /* 頂部留出導航欄空間 */
   padding: 30px;
   background-color: var(--surface-color, #1e1f2e);
   border-radius: var(--border-radius, 8px);
@@ -212,7 +212,7 @@ h1 {
 @media (max-width: 768px) {
   .container {
     padding: 15px;
-    margin: 10px;
+    margin: 90px 10px 10px; /* 手機版導航欄調整 */
   }
   
   h1 {

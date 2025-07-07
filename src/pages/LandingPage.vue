@@ -240,6 +240,7 @@ const navigateToAnalyzer = () => {
 .landing-page {
   background-color: var(--secondary-color);
   min-height: 100vh;
+  padding-top: 80px; /* 為固定導航欄留出空間 */
 }
 
 /* 統一容器樣式 */
@@ -769,6 +770,10 @@ button, .cta-button {
     
     .main-footer {
       padding: 40px 16px;
+    }
+    
+    .landing-page {
+      padding-top: 70px; /* 手機版導航欄調整 */
     }
   }
   
